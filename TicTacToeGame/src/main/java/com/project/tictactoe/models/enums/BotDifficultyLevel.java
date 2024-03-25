@@ -1,5 +1,5 @@
 package com.project.tictactoe.models.enums;
 
-public enum PlayerDifficultyLevel {
+public enum BotDifficultyLevel {
     EASY, MEDIUM, HARD
 }
