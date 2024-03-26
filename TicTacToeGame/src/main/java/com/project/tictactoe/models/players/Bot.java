@@ -1,5 +1,7 @@
 package com.project.tictactoe.models.players;
 
+import com.project.tictactoe.models.Board;
+import com.project.tictactoe.models.Move;
 import com.project.tictactoe.models.Symbol;
 import com.project.tictactoe.models.enums.BotDifficultyLevel;
 import com.project.tictactoe.models.enums.PlayerType;
@@ -11,12 +13,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Bot extends Player{
-    BotDifficultyLevel botDifficultyLevel;
-    BotPlayingStrategy botPlayingStrategy;
+    private BotDifficultyLevel botDifficultyLevel;
+    private BotPlayingStrategy botPlayingStrategy;
 
     public Bot(String Name, int id, Symbol symbol, PlayerType playerType, BotDifficultyLevel botDifficultyLevel) {
         super(Name, id, symbol, playerType);
         this.botDifficultyLevel = botDifficultyLevel;
         botPlayingStrategy = BotPlayingStrategyFactory.getBotPlayingStrategy(botDifficultyLevel);
+    }
+
+    @Override
+    public Move makeMove(Board board) {
+        return null;
     }
 }

@@ -8,15 +8,23 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Cell {
-    int row;
-    int col;
-    Player player;
-    CellStatus cellStatus;
+    private int row;
+    private int col;
+    private Player player;
+    private CellStatus cellStatus;
 
     public Cell(int row,int col){
         this.row = row;
         this.col = col;
         this.player = null ;
         this.cellStatus = CellStatus.EMPTY;
+    }
+
+    public void printCell(){
+        if(cellStatus.equals(CellStatus.EMPTY))
+            System.out.print("| |");
+        else{
+            System.out.print("|" + player.getSymbol().symbol + "|");
+        }
     }
 }

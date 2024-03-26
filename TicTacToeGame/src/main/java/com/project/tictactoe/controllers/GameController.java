@@ -13,26 +13,28 @@ import java.util.List;
 public class GameController {
 
     public Game startGame(int dimension, List<Player> players, List<WinningStrategy> winningStrategies){
-        return Game.getBuilder()
-                .setBoard(new Board(dimension))
-                .setPlayers(players)
-                .setWinningStrategies(winningStrategies)
+        return Game.builder()
+                .board(new Board(dimension))
+                .players(players)
+                .winningStrategies(winningStrategies)
+                .nextPlayerIdx(0)
+                .gameState(GameState.ONGOING)
                 .build();
     }
 
     public void displayBoard(Game game){
-
+        game.display();
     }
 
     public void makeMove(Game game){
-
+        game.makeMove();
     }
 
     public Player getWinner(Game game){
-        return null;
+        return game.getWinner();
     }
 
     public GameState checkGameState(Game game){
-        return null;
+        return game.getGameState();
     }
 }

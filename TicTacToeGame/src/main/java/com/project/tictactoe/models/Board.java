@@ -10,8 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 public class Board {
-    List<List<Cell>> cells;
-    int boardSize;
+    private List<List<Cell>> cells;
+    private int boardSize;
 
     public Board(int boardSize){
         this.boardSize = boardSize;
@@ -29,5 +29,14 @@ public class Board {
     public void setCell(int row, int col, CellStatus cellStatus){
         Cell currentCell = cells.get(row).get(col);
         currentCell.setCellStatus(cellStatus);
+    }
+
+    public void displayBoard(){
+        for(int i=0;i<boardSize;i++){
+            for(int j=0;j<boardSize;j++){
+                cells.get(i).get(j).printCell();
+            }
+            System.out.println();
+        }
     }
 }
