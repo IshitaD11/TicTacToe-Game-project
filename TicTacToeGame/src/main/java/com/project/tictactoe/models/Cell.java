@@ -24,7 +24,7 @@ public class Cell {
         if(cellStatus.equals(CellStatus.EMPTY))
             System.out.print("| |");
         else{
-            System.out.print("|" + player.getSymbol().symbol + "|");
+            System.out.print("|" + player.getSymbol().getSymbol() + "|");
         }
     }
 }

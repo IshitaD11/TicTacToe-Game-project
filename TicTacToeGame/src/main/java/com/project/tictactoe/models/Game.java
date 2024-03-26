@@ -23,7 +23,7 @@ public class Game {
     private List<Move> moves;
 
     private Player winner;
-    private int nextPlayerIdx = 0;
+    private int nextPlayerIdx;
     private GameState gameState;
     private List<WinningStrategy> winningStrategies;
 
@@ -106,7 +106,6 @@ public class Game {
         Move currentMove = currentPlayer.makeMove(board);
         if(!isValidMove(currentMove)){
             System.out.println("Invalid Move please retry");
-            return;
         }
         else{
             Cell cellToChange = board.getCells().get(currentMove.getCell().getRow()).get(currentMove.getCell().getCol());

@@ -1,6 +1,5 @@
 package com.project.tictactoe.models;
 
-import com.project.tictactoe.models.enums.CellStatus;
 import com.project.tictactoe.models.players.Player;
 import lombok.Getter;
 import lombok.Setter;

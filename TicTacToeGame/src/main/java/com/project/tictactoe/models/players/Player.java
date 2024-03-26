@@ -4,7 +4,6 @@ import com.project.tictactoe.models.Board;
 import com.project.tictactoe.models.Move;
 import com.project.tictactoe.models.Symbol;
 import com.project.tictactoe.models.enums.PlayerType;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +15,7 @@ public abstract class Player {
     private Symbol symbol;
     private PlayerType playerType;
 
-    public Player(String Name, int id, Symbol symbol, PlayerType playerType){
+    public Player(String name, int id, Symbol symbol, PlayerType playerType){
         this.name = name;
         this.id = id;
         this.symbol = symbol;
