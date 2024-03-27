@@ -26,12 +26,13 @@ public class Game {
     private int nextPlayerIdx;
     private GameState gameState;
     private List<WinningStrategy> winningStrategies;
+    private HashSet<Symbol> playerSymbols ;
 
     // adding validation
     public static class Builder{
-        Board board;
-        List<Player> players;
-        List<WinningStrategy> winningStrategies;
+        private Board board;
+        private List<Player> players;
+        private List<WinningStrategy> winningStrategies;
 
         public Builder addSinglePlayer(Player player) {
             this.players.add(player);
@@ -116,7 +117,7 @@ public class Game {
 
             nextPlayerIdx = (nextPlayerIdx+1)%(players.size());
 
-            if(checkWinner(currentPlayer,board)){
+            if(checkWinner(currentMove,board)){
                 winner = currentPlayer;
                 gameState = GameState.COMPLETE;
             }
@@ -127,9 +128,9 @@ public class Game {
         }
     }
 
-    public boolean checkWinner(Player currentPlayer,Board board){
+    public boolean checkWinner(Move currentMove,Board board){
         for(WinningStrategy winningStrategy:winningStrategies){
-            if(winningStrategy.checkWinner(currentPlayer,board))
+            if(winningStrategy.checkWinner(currentMove,board))
                 return true;
         }
         return false;
