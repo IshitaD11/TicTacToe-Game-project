@@ -21,6 +21,7 @@ public class Cell {
     }
 
     public void printCell(){
+//        System.out.println(cellStatus.equals(CellStatus.EMPTY));
         if(cellStatus.equals(CellStatus.EMPTY))
             System.out.print("| |");
         else{

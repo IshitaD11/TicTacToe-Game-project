@@ -15,15 +15,19 @@ public class Board {
 
     public Board(int boardSize){
         this.boardSize = boardSize;
-        List<List<Cell>> cells = new ArrayList<>();
+        cells = new ArrayList<>();
 
         //initialize the board
         for(int i=0;i<boardSize;i++){
             cells.add(new ArrayList<>());
+//            System.out.println("inside outer loop");
             for(int j=0;j<boardSize;j++){
+//                System.out.println("inside inner loop");
                 cells.get(i).add(new Cell(i,j));
             }
         }
+        System.out.println("board initialised with size: " + boardSize);
+        displayBoard();
     }
 
     public void setCell(int row, int col, CellStatus cellStatus){
@@ -34,6 +38,7 @@ public class Board {
     public void displayBoard(){
         for(int i=0;i<boardSize;i++){
             for(int j=0;j<boardSize;j++){
+                //System.out.println(cells.size());
                 cells.get(i).get(j).printCell();
             }
             System.out.println();

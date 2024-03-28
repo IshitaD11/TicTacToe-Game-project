@@ -1,6 +1,6 @@
 package com.project.tictactoe.models.players;
 
-import com.project.tictactoe.models.Board;
+import com.project.tictactoe.models.Game;
 import com.project.tictactoe.models.Move;
 import com.project.tictactoe.models.Symbol;
 import com.project.tictactoe.models.enums.BotDifficultyLevel;
@@ -23,7 +23,8 @@ public class Bot extends Player{
     }
 
     @Override
-    public Move makeMove(Board board) {
-        return botPlayingStrategy.makeMove(board,this);
+    public Move makeMove(Game game) {
+
+        return botPlayingStrategy.makeMove(game,this);
     }
 }

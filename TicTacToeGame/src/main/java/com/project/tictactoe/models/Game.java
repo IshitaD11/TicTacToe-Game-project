@@ -104,7 +104,7 @@ public class Game {
     public void makeMove(){
         Player currentPlayer = players.get(nextPlayerIdx);
         System.out.println("This is " + currentPlayer.getName() + "'s turn");
-        Move currentMove = currentPlayer.makeMove(board);
+        Move currentMove = currentPlayer.makeMove(this);
         if(!isValidMove(currentMove)){
             System.out.println("Invalid Move please retry");
         }
@@ -112,6 +112,8 @@ public class Game {
             Cell cellToChange = board.getCells().get(currentMove.getCell().getRow()).get(currentMove.getCell().getCol());
             cellToChange.setCellStatus(CellStatus.FILLED);
             cellToChange.setPlayer(currentPlayer);
+
+//            System.out.println("moves size:" + moves.size());
 
             moves.add(currentMove);
 

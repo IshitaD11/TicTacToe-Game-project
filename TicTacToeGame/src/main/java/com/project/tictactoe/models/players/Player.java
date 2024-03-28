@@ -1,6 +1,6 @@
 package com.project.tictactoe.models.players;
 
-import com.project.tictactoe.models.Board;
+import com.project.tictactoe.models.Game;
 import com.project.tictactoe.models.Move;
 import com.project.tictactoe.models.Symbol;
 import com.project.tictactoe.models.enums.PlayerType;
@@ -22,6 +22,6 @@ public abstract class Player {
         this.playerType = playerType;
     }
 
-    public abstract Move makeMove(Board board);
+    public abstract Move makeMove(Game game);
 
 }

@@ -31,23 +31,32 @@ public class TicTacToeApplication {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Give no of players");
-        int playerCnt = sc.nextInt();
+        int playerCnt = 2; //sc.nextInt();
 
         for(int i=0;i<playerCnt;i++){
             System.out.println("Give Player" + (i+1) + "type: (Human/Bot)");
-            String playerType = sc.next();
+            String playerType; // = sc.next();
+
+            if(i==0) {
+                playerType = "Human";
+            }
+            else {
+                playerType = "Bot";
+            }
+
+
             if(playerType.equals("Bot")){
                 System.out.println("Give Bot Symbol");
                 char symbol = sc.next().charAt(0);
                 System.out.println("Select Bot Difficulty Level: (EASY/MEDIUM/HARD)");
-                String botDifficultyLevel = sc.next();
+                String botDifficultyLevel = "MEDIUM"; //"EASY"; //sc.next();
                 players.add(new Bot("BOT", (i+1), new Symbol(symbol), PlayerType.BOT , BotDifficultyLevel.valueOf(botDifficultyLevel) ));
             }
             else if(playerType.equals("Human")){
                 System.out.println("Give player Symbol");
                 char symbol = sc.next().charAt(0);
                 System.out.println("Select player name");
-                String name = sc.next();
+                String name = "ID"; //sc.next();
                 players.add(new Human(name, (i+1) , new Symbol(symbol), PlayerType.HUMAN));
             }
             else
@@ -55,28 +64,37 @@ public class TicTacToeApplication {
         }
 
         System.out.println("Select count of allowed winning strategies: (ROW/ COLUMN/ DIAGONAL/ CORNER)");
-        int strategyCnt = sc.nextInt();
+        int strategyCnt = 1 ; //sc.nextInt();
 
         System.out.println("Input the allowed winning strategies: (ROW/ COLUMN/ DIAGONAL/ CORNER)");
         for(int i=0;i<strategyCnt;i++){
-            String strategy = sc.next();
+            String strategy = "ROW"; //sc.next();
             WinningStrategy winningStrategy = WinningStrategyFactory.getWinningStrategy(WinningStrategyTypes.valueOf(strategy));
             winningStrategyList.add(winningStrategy);
+            strategy = "COLUMN"; //sc.next();
+            winningStrategy = WinningStrategyFactory.getWinningStrategy(WinningStrategyTypes.valueOf(strategy));
+            winningStrategyList.add(winningStrategy);
+            strategy = "DIAGONAL"; //sc.next();
+            winningStrategy = WinningStrategyFactory.getWinningStrategy(WinningStrategyTypes.valueOf(strategy));
+            winningStrategyList.add(winningStrategy);
+
         }
 
         Game game = gameController.startGame(playerCnt+1 ,players, winningStrategyList );
 
-        while(!gameController.checkGameState(game).equals(GameState.COMPLETE)){
+        while(gameController.checkGameState(game).equals(GameState.ONGOING)){
             gameController.displayBoard(game);
             gameController.makeMove(game);
         }
+
+        gameController.displayBoard(game);
 
         if(gameController.checkGameState(game).equals(GameState.DRAW)){
             System.out.println("Game is Draw");
         }
         else if(gameController.checkGameState(game).equals(GameState.COMPLETE)){
             Player player = gameController.getWinner(game);
-            System.out.println(player.getName());
+            System.out.println("Winner is:" + player.getName());
         }
 
     }

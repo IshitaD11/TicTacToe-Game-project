@@ -32,7 +32,7 @@ public class Human extends Player implements UndoFunctionality {
     }
 
     @Override
-    public Move makeMove(Board board) {
+    public Move makeMove(Game game) {
         System.out.println("where you want to play?");
         System.out.println("give row");
         int row = sc.nextInt();

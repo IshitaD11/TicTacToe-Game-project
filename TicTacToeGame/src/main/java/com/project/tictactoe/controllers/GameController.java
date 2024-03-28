@@ -7,6 +7,7 @@ import com.project.tictactoe.models.players.Player;
 import com.project.tictactoe.strategies.winningStrategies.WinningStrategy;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,6 +20,7 @@ public class GameController {
                 .winningStrategies(winningStrategies)
                 .nextPlayerIdx(0)
                 .gameState(GameState.ONGOING)
+                .moves(new ArrayList<>())
                 .build();
     }
 

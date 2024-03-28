@@ -1,8 +1,10 @@
 package com.project.tictactoe.strategies.winningStrategies;
 
 import com.project.tictactoe.models.Board;
+import com.project.tictactoe.models.Cell;
 import com.project.tictactoe.models.Move;
 import com.project.tictactoe.models.Symbol;
+import com.project.tictactoe.models.players.Player;
 
 public class CornerWinningStrategy implements WinningStrategy{
     @Override
@@ -26,5 +28,10 @@ public class CornerWinningStrategy implements WinningStrategy{
             return cnt == 4;
         }
         return false;
+    }
+
+    @Override
+    public Cell checkPossibleMove(Player player, Board board) {
+        return null;
     }
 }
